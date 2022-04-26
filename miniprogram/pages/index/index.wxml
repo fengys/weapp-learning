@@ -1,0 +1,46 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 轮播图 -->
+  <view class="page-body">
+    <ps-swiper />
+  </view>
+
+  <view class="userinfo">
+    <block wx:if="{{canIUseOpenData}}">
+      <view class="userinfo-avatar" bindtap="bindViewTap">
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+      <open-data type="userNickName"></open-data>
+    </block>
+    <block wx:elif="{{!hasUserInfo}}">
+      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
+      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
+    </block>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <!-- 功能区 -->
+  <view>
+  </view>
+
+  <!-- 公告通知 -->
+  <view>
+
+  </view>
+
+  <!-- 资讯 -->
+  <view>
+
+  </view>
+  <!-- <view>
+    <van-tabbar active="{{ active }}" active-color="#07c160" inactive-color="#000" bind:change="handleTabBarChange">
+      <van-tabbar-item icon="home-o">首页</van-tabbar-item>
+      <van-tabbar-item icon="search">搜索</van-tabbar-item>
+      <van-tabbar-item icon="friends-o">联系人</van-tabbar-item>
+      <van-tabbar-item icon="setting-o">设置</van-tabbar-item>
+    </van-tabbar>
+  </view> -->
+</view>

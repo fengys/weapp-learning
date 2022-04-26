@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "PropertyService",
+  "usingComponents": {
+    "ps-swiper": "../../components/Swiper"
+  }
+}
